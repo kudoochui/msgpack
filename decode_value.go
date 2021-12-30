@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"github.com/vmihailenco/msgpack/v5/msgpcode"
 )
 
 var (
@@ -178,7 +179,9 @@ func decodeBoolValue(d *Decoder, v reflect.Value) error {
 }
 
 func decodeInterfaceValue(d *Decoder, v reflect.Value) error {
-	if v.IsNil() {
+	//if v.IsNil() {
+	c, _ := d.PeekCode()
+	if v.IsNil() || c == msgpcode.Nil {
 		return d.interfaceValue(v)
 	}
 	return d.DecodeValue(v.Elem())
@@ -199,6 +202,8 @@ func (d *Decoder) interfaceValue(v reflect.Value) error {
 		}
 
 		v.Set(reflect.ValueOf(vv))
+	} else if v.CanSet() {
+		v.Set(reflect.Zero(v.Type()))
 	}
 
 	return nil
