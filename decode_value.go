@@ -4,8 +4,8 @@ import (
 	"encoding"
 	"errors"
 	"fmt"
+	"github.com/kudoochui/msgpack/v5/msgpcode"
 	"reflect"
-	"github.com/vmihailenco/msgpack/v5/msgpcode"
 )
 
 var (

@@ -1,4 +1,4 @@
-## [5.3.5](https://github.com/vmihailenco/msgpack/compare/v5.3.4...v5.3.5) (2021-10-22)
+## [5.3.5](https://github.com/kudoochui/msgpack/compare/v5.3.4...v5.3.5) (2021-10-22)
 
 - Allow decoding `nil` code as boolean false.
 
@@ -38,7 +38,7 @@
 
 ## v3
 
-- gopkg.in is not supported any more. Update import path to github.com/vmihailenco/msgpack.
+- gopkg.in is not supported any more. Update import path to github.com/kudoochui/msgpack.
 - Msgpack maps are decoded into map[string]interface{} by default.
 - EncodeSliceLen is removed in favor of EncodeArrayLen. DecodeSliceLen is removed in favor of
   DecodeArrayLen.
